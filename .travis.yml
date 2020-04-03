@@ -11,10 +11,10 @@ script:
 after_success:
   - docker build -t nickrockstar/complex-multi-client ./client
   - docker build -t nickrockstar/complex-multi-nginx ./nginx
-  - docker build -t nickrockstar/complex-multi-server ./server
+  - docker build -t nickrockstar/complex-multi-api ./api
   - docker build -t nickrockstar/complex-multi-worker ./worker
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push nickrockstar/complex-multi-client
   - docker push nickrockstar/complex-multi-nginx
-  - docker push nickrockstar/complex-multi-server
+  - docker push nickrockstar/complex-multi-api
   - docker push nickrockstar/complex-multi-worker
