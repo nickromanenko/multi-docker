@@ -18,3 +18,15 @@ after_success:
   - docker push nickrockstar/complex-multi-nginx
   - docker push nickrockstar/complex-multi-api
   - docker push nickrockstar/complex-multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: 'eu-central-1'
+  app: 'complex-multi-docker'
+  env: 'ComplexMultiDocker-env'
+  bucket_name: 'elasticbeanstalk-eu-central-1-991607386664'
+  bucket_path: 'complex-multi-docker'
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
